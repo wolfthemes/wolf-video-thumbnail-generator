@@ -1,0 +1,41 @@
+<!-- ?xml version="1.0" encoding="UTF-8"? -->
+<root>
+<slug>wolf-video-thumbnail-generator</slug>
+<name>Wolf Video Thumbnail Generator</name>
+<link>http://wolfthemes.com/plugin/wolf-video-thumbnail-generator</link>
+<short_link>http://wlfthm.es/xAsAqi</short_link>
+<created>2016-12-16</created>
+<requires>4.4.1</requires>
+<tested>4.8</tested>
+<description>Generate an image from the first video in the post. Supports YouTube and Vimeo.</description>
+<date>2017-11-22</date>
+<latest>1.0.4</latest>
+<warning><![CDATA[]]></warning>
+<info><![CDATA[]]></info>
+<new><![CDATA[]]></new>
+<changelog>
+<![CDATA[
+<h4 id="22th-november-2017-version-1-0-4">22th November 2017 - Version 1.0.4</h4>
+<ul>
+<li>Other: Enable generator in work, release and event posts</li>
+</ul>
+<h4 id="17th-november-2017-version-1-0-3">17th November 2017 - Version 1.0.3</h4>
+<ul>
+<li>Other: Enable generator in content block posts</li>
+</ul>
+<h4 id="9th-september-2017-version-1-0-2">9th September 2017 - Version 1.0.2</h4>
+<ul>
+<li>Other: Stop setting the generated thumbnail as featured image automatically</li>
+</ul>
+<h4 id="3rd-january-2017-version-1-0-1">3rd January 2017 - Version 1.0.1</h4>
+<ul>
+<li>Tweak: Rename Wolf_Video_Thumbnail class to Wolf_Video_Thumbnail_Generator_Processor to avoid conflict with old plugin and theme versions</li>
+</ul>
+<h4 id="16th-december-2016-version-1-0-0">16th December 2016 - Version 1.0.0</h4>
+<ul>
+<li>Initial release</li>
+</ul>
+
+]]>
+</changelog>
+</root>
