@@ -6,15 +6,19 @@
 <short_link>http://wlfthm.es/xAsAqi</short_link>
 <created>2016-12-16</created>
 <requires>4.4.1</requires>
-<tested>4.8</tested>
+<tested>4.9.1</tested>
 <description>Generate an image from the first video in the post. Supports YouTube and Vimeo.</description>
-<date>2017-11-22</date>
-<latest>1.0.4</latest>
+<date>2018-01-05</date>
+<latest>1.0.5</latest>
 <warning><![CDATA[]]></warning>
 <info><![CDATA[]]></info>
 <new><![CDATA[]]></new>
 <changelog>
 <![CDATA[
+<h4 id="5th-january-2018-version-1-0-5">5th January 2018 - Version 1.0.5</h4>
+<ul>
+<li>Other: Don&#39;t set the generated video thumbnail as featured image automatically</li>
+</ul>
 <h4 id="22th-november-2017-version-1-0-4">22th November 2017 - Version 1.0.4</h4>
 <ul>
 <li>Other: Enable generator in work, release and event posts</li>

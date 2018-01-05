@@ -1,3 +1,7 @@
+#### 5th January 2018 - Version 1.0.5
+
+* Other: Don't set the generated video thumbnail as featured image automatically
+
 #### 22th November 2017 - Version 1.0.4
 
 * Other: Enable generator in work, release and event posts
