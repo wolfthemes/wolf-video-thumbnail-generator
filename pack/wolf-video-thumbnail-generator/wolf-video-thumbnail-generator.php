@@ -3,11 +3,11 @@
  * Plugin Name: Wolf Video Thumbnail Generator
  * Plugin URI: http://wolfthemes.com/plugin/wolf-video-thumbnail-generator
  * Description: Generate an image from the first video in the post. Supports YouTube and Vimeo.
- * Version: 1.0.5
+ * Version: 1.0.0
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
  * Requires at least: 4.4.1
- * Tested up to: 4.9.1
+ * Tested up to: 4.7
  *
  * Text Domain: wolf-video-thumbnail-generator
  * Domain Path: /languages/
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 	 * Contains the main functions for Wolf_Video_Thumbnail_Generator
 	 *
 	 * @class Wolf_Video_Thumbnail_Generator
-	 * @version 1.0.5
+	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
 	class Wolf_Video_Thumbnail_Generator {
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.0.5';
+		public $version = '1.0.0';
 
 		/**
 		 * @var Wolf Video Thumbnail Generator The single instance of the class
@@ -84,6 +84,20 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 				self::$_instance = new self();
 			}
 			return self::$_instance;
+		}
+
+		/**
+		 * Cloning is forbidden.
+		 */
+		public function __clone() {
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wolf-video-thumbnail-generator' ), '1.0' );
+		}
+
+		/**
+		 * Unserializing instances of this class is forbidden.
+		 */
+		public function __wakeup() {
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wolf-video-thumbnail-generator' ), '1.0' );
 		}
 
 		/**

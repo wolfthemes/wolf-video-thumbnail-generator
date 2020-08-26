@@ -1,6 +1,6 @@
 <?php
 /**
- * Phaedra Video thumbnail generator
+ * %NAME% Video thumbnail generator
  *
  * Supports vimeo and youtube
  *

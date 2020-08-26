@@ -1,15 +1,13 @@
 <?php
 /**
- * Wolf Video Thumbnail Generator Uninstall
+ * Wolf Recipes Uninstall
  *
- * Uninstalling Wolf Video Thumbnail Generator
+ * Uninstalling Wolf Recipes
  *
  * @author WolfThemes
  * @category Core
- * @package WolfVideoThumbnailGenerator/Uninstaller
+ * @package WolfRecipes/Uninstaller
  * @version 1.0.0
  */
 
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
-}
+defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

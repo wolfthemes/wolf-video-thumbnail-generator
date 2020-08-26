@@ -16,22 +16,9 @@
  * @category Core
  * @author %AUTHOR%
  *
- * Being a free product, this plugin is distributed as-is without official support.
- * Verified customers however, who have purchased a premium theme
- * at http://themeforest.net/user/Wolf-Themes/portfolio?ref=Wolf-Themes
+ * Verified customers who have purchased a premium theme at https://wlfthm.es/tf/
  * will have access to support for this plugin in the forums
- * http://help.wolfthemes.com/
- *
- * Copyright (C) 2013 Constantin Saguin
- * This WordPress Plugin is a free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * It is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * See http://www.gnu.org/licenses/gpl-3.0.html
+ * https://wlfthm.es/help/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -90,7 +77,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		 * %NAME% Constructor.
 		 */
 		public function __construct() {
-			
+
 			$this->define_constants();
 			$this->includes();
 
@@ -101,7 +88,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		 * Define WR Constants
 		 */
 		private function define_constants() {
-			
+
 			$constants = array(
 				'WVTG_DEV' => false,
 				'WVTG_DIR' => $this->plugin_path(),
@@ -190,6 +177,34 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		 */
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
+		}
+
+		/**
+		 * Plugin update
+		 */
+		public function plugin_update() {
+
+			if ( ! class_exists( 'WP_GitHub_Updater' ) ) {
+				include_once 'inc/admin/updater.php';
+			}
+
+			$repo = 'wolfthemes/wolf-video-thumbnail-generator';
+
+			$config = array(
+				'slug' => plugin_basename( __FILE__ ),
+				'proper_folder_name' => 'wolf-video-thumbnail-generator',
+				'api_url' => 'https://api.github.com/repos/' . $repo . '',
+				'raw_url' => 'https://raw.github.com/' . $repo . '/master/',
+				'github_url' => 'https://github.com/' . $repo . '',
+				'zip_url' => 'https://github.com/' . $repo . '/archive/master.zip',
+				'sslverify' => true,
+				'requires' => '5.0',
+				'tested' => '5.5',
+				'readme' => 'README.md',
+				'access_token' => '',
+			);
+
+			new WP_GitHub_Updater( $config );
 		}
 	} // end class
 } // end class check

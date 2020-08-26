@@ -1,3 +1,5 @@
+# Changelog
+
 #### 5th January 2018 - Version 1.0.5
 
 * Other: Don't set the generated video thumbnail as featured image automatically
