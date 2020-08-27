@@ -1,12 +1,12 @@
 <?php
 /**
- * %NAME% Uninstall
+ * Video Thumbnail Generator Uninstall
  *
- * Uninstalling %NAME%
+ * Uninstalling Video Thumbnail Generator
  *
- * @author %AUTHOR%
+ * @author WolfThemes
  * @category Core
- * @package %PACKAGENAME%/Uninstaller
+ * @package WolfVideoThumbnailGenerator/Uninstaller
  * @version 1.0.0
  */
 

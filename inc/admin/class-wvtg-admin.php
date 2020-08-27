@@ -1,12 +1,12 @@
 <?php
 /**
- * %NAME% Admin.
+ * Video Thumbnail Generator Admin.
  *
  * @class WVTG_Admin
- * @author %AUTHOR%
+ * @author WolfThemes
  * @category Admin
- * @package %PACKAGENAME%/Admin
- * @version %VERSION%
+ * @package WolfVideoThumbnailGenerator/Admin
+ * @version 1.0.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

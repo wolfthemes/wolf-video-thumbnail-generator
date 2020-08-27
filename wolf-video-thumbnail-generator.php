@@ -1,20 +1,20 @@
 <?php
 /**
  * Plugin Name: Wolf Video Thumbnail Generator
- * Plugin URI: %LINK%
- * Description: %DESCRIPTION%
- * Version: %VERSION%
- * Author: %AUTHOR%
- * Author URI: %AUTHORURI%
- * Requires at least: %REQUIRES%
- * Tested up to: %TESTED%
+ * Plugin URI: https://github.com/wolfthemes/wolf-video-thumbnail-generator
+ * Description: Generate an image from the first video in the post. Supports YouTube and Vimeo.
+ * Version: 1.0.6
+ * Author: WolfThemes
+ * Author URI: http://wolfthemes.com
+ * Requires at least: 5.0
+ * Tested up to: 5.5
  *
- * Text Domain: %TEXTDOMAIN%
+ * Text Domain: wolf-video-thumbnail-generator
  * Domain Path: /languages/
  *
- * @package %PACKAGENAME%
+ * @package WolfVideoThumbnailGenerator
  * @category Core
- * @author %AUTHOR%
+ * @author WolfThemes
  *
  * Verified customers who have purchased a premium theme at https://wlfthm.es/tf/
  * will have access to support for this plugin in the forums
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 	 * Contains the main functions for Wolf_Video_Thumbnail_Generator
 	 *
 	 * @class Wolf_Video_Thumbnail_Generator
-	 * @version %VERSION%
+	 * @version 1.0.6
 	 * @since 1.0.0
 	 */
 	class Wolf_Video_Thumbnail_Generator {
@@ -40,10 +40,10 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '%VERSION%';
+		public $version = '1.0.6';
 
 		/**
-		 * @var %NAME% The single instance of the class
+		 * @var Video Thumbnail Generator The single instance of the class
 		 */
 		protected static $_instance = null;
 
@@ -58,13 +58,13 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		private $support_url = 'https://wlfthm.es/help';
 
 		/**
-		 * Main %NAME% Instance
+		 * Main Video Thumbnail Generator Instance
 		 *
-		 * Ensures only one instance of %NAME% is loaded or can be loaded.
+		 * Ensures only one instance of Video Thumbnail Generator is loaded or can be loaded.
 		 *
 		 * @static
 		 * @see WVTG()
-		 * @return %NAME% - Main instance
+		 * @return Video Thumbnail Generator - Main instance
 		 */
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		}
 
 		/**
-		 * %NAME% Constructor.
+		 * Video Thumbnail Generator Constructor.
 		 */
 		public function __construct() {
 
