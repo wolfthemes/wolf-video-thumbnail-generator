@@ -1,8 +1,8 @@
 {
-	"version": "1.0.5",
-	"updated": "2018-01-05",
+	"version": "1.0.6",
+	"updated": "2020-08-26",
 	"slug": "wolf-video-thumbnail-generator",
-	"name": "Wolf Video Thumbnail Generator",
+	"name": "Video Thumbnail Generator",
 	"packagename": "WolfVideoThumbnailGenerator",
 	"created": "2016-12-16",
 	"createdNice": "16th december 2016",

@@ -55,7 +55,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * @var the support forum URL
 		 */
-		private $support_url = 'http://help.wolfthemes.com/';
+		private $support_url = 'https://wlfthm.es/help';
 
 		/**
 		 * Main %NAME% Instance
@@ -98,7 +98,6 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 				'WVTG_SLUG' => plugin_basename( dirname( __FILE__ ) ),
 				'WVTG_PATH' => plugin_basename( __FILE__ ),
 				'WVTG_VERSION' => $this->version,
-				'WVTG_UPDATE_URL' => $this->update_url,
 				'WVTG_SUPPORT_URL' => $this->support_url,
 				'WVTG_DOC_URI' => 'http://docs.wolfthemes.com/documentation/plugins/' . plugin_basename( dirname( __FILE__ ) ),
 				'WVTG_WOLF_DOMAIN' => 'wolfthemes.com',
