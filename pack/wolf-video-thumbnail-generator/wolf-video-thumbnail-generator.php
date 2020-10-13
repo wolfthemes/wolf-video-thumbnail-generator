@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Wolf Video Thumbnail Generator
- * Plugin URI: http://wolfthemes.com/plugin/wolf-video-thumbnail-generator
+ * Plugin Name: Video Thumbnail Generator
+ * Plugin URI: https://github.com/wolfthemes/wolf-video-thumbnail-generator
  * Description: Generate an image from the first video in the post. Supports YouTube and Vimeo.
- * Version: 1.0.0
+ * Version: 1.0.6
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
- * Requires at least: 4.4.1
- * Tested up to: 4.7
+ * Requires at least: 5.0
+ * Tested up to: 5.5
  *
  * Text Domain: wolf-video-thumbnail-generator
  * Domain Path: /languages/
@@ -16,22 +16,9 @@
  * @category Core
  * @author WolfThemes
  *
- * Being a free product, this plugin is distributed as-is without official support.
- * Verified customers however, who have purchased a premium theme
- * at http://themeforest.net/user/Wolf-Themes/portfolio?ref=Wolf-Themes
+ * Verified customers who have purchased a premium theme at https://wlfthm.es/tf/
  * will have access to support for this plugin in the forums
- * http://help.wolfthemes.com/
- *
- * Copyright (C) 2013 Constantin Saguin
- * This WordPress Plugin is a free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * It is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * See http://www.gnu.org/licenses/gpl-3.0.html
+ * https://wlfthm.es/help/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,7 +32,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 	 * Contains the main functions for Wolf_Video_Thumbnail_Generator
 	 *
 	 * @class Wolf_Video_Thumbnail_Generator
-	 * @version 1.0.0
+	 * @version 1.0.6
 	 * @since 1.0.0
 	 */
 	class Wolf_Video_Thumbnail_Generator {
@@ -53,10 +40,10 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.0.0';
+		public $version = '1.0.6';
 
 		/**
-		 * @var Wolf Video Thumbnail Generator The single instance of the class
+		 * @var Video Thumbnail Generator The single instance of the class
 		 */
 		protected static $_instance = null;
 
@@ -68,16 +55,16 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * @var the support forum URL
 		 */
-		private $support_url = 'http://help.wolfthemes.com/';
+		private $support_url = 'https://wlfthm.es/help';
 
 		/**
-		 * Main Wolf Video Thumbnail Generator Instance
+		 * Main Video Thumbnail Generator Instance
 		 *
-		 * Ensures only one instance of Wolf Video Thumbnail Generator is loaded or can be loaded.
+		 * Ensures only one instance of Video Thumbnail Generator is loaded or can be loaded.
 		 *
 		 * @static
 		 * @see WVTG()
-		 * @return Wolf Video Thumbnail Generator - Main instance
+		 * @return Video Thumbnail Generator - Main instance
 		 */
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
@@ -87,24 +74,10 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		}
 
 		/**
-		 * Cloning is forbidden.
-		 */
-		public function __clone() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wolf-video-thumbnail-generator' ), '1.0' );
-		}
-
-		/**
-		 * Unserializing instances of this class is forbidden.
-		 */
-		public function __wakeup() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wolf-video-thumbnail-generator' ), '1.0' );
-		}
-
-		/**
-		 * Wolf Video Thumbnail Generator Constructor.
+		 * Video Thumbnail Generator Constructor.
 		 */
 		public function __construct() {
-			
+
 			$this->define_constants();
 			$this->includes();
 
@@ -115,7 +88,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		 * Define WR Constants
 		 */
 		private function define_constants() {
-			
+
 			$constants = array(
 				'WVTG_DEV' => false,
 				'WVTG_DIR' => $this->plugin_path(),
@@ -125,7 +98,6 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 				'WVTG_SLUG' => plugin_basename( dirname( __FILE__ ) ),
 				'WVTG_PATH' => plugin_basename( __FILE__ ),
 				'WVTG_VERSION' => $this->version,
-				'WVTG_UPDATE_URL' => $this->update_url,
 				'WVTG_SUPPORT_URL' => $this->support_url,
 				'WVTG_DOC_URI' => 'http://docs.wolfthemes.com/documentation/plugins/' . plugin_basename( dirname( __FILE__ ) ),
 				'WVTG_WOLF_DOMAIN' => 'wolfthemes.com',
@@ -204,6 +176,34 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		 */
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
+		}
+
+		/**
+		 * Plugin update
+		 */
+		public function plugin_update() {
+
+			if ( ! class_exists( 'WP_GitHub_Updater' ) ) {
+				include_once 'inc/admin/updater.php';
+			}
+
+			$repo = 'wolfthemes/wolf-video-thumbnail-generator';
+
+			$config = array(
+				'slug' => plugin_basename( __FILE__ ),
+				'proper_folder_name' => 'wolf-video-thumbnail-generator',
+				'api_url' => 'https://api.github.com/repos/' . $repo . '',
+				'raw_url' => 'https://raw.github.com/' . $repo . '/master/',
+				'github_url' => 'https://github.com/' . $repo . '',
+				'zip_url' => 'https://github.com/' . $repo . '/archive/master.zip',
+				'sslverify' => true,
+				'requires' => '5.0',
+				'tested' => '5.5',
+				'readme' => 'README.md',
+				'access_token' => '',
+			);
+
+			new WP_GitHub_Updater( $config );
 		}
 	} // end class
 } // end class check

@@ -1,5 +1,9 @@
 # Changelog
 
+#### 13th October 2020 - Version 1.0.7
+
+-   Tweak: Added config files
+
 #### 26th August 2020 - Version 1.0.6
 
 -   Tweak: Unbrand plugin name

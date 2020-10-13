@@ -21,9 +21,7 @@
  * https://wlfthm.es/help/
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 	/**
@@ -90,16 +88,16 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		private function define_constants() {
 
 			$constants = array(
-				'WVTG_DEV' => false,
-				'WVTG_DIR' => $this->plugin_path(),
-				'WVTG_URI' => $this->plugin_url(),
-				'WVTG_CSS' => $this->plugin_url() . '/assets/css',
-				'WVTG_JS' => $this->plugin_url() . '/assets/js',
-				'WVTG_SLUG' => plugin_basename( dirname( __FILE__ ) ),
-				'WVTG_PATH' => plugin_basename( __FILE__ ),
-				'WVTG_VERSION' => $this->version,
+				'WVTG_DEV'         => false,
+				'WVTG_DIR'         => $this->plugin_path(),
+				'WVTG_URI'         => $this->plugin_url(),
+				'WVTG_CSS'         => $this->plugin_url() . '/assets/css',
+				'WVTG_JS'          => $this->plugin_url() . '/assets/js',
+				'WVTG_SLUG'        => plugin_basename( dirname( __FILE__ ) ),
+				'WVTG_PATH'        => plugin_basename( __FILE__ ),
+				'WVTG_VERSION'     => $this->version,
 				'WVTG_SUPPORT_URL' => $this->support_url,
-				'WVTG_DOC_URI' => 'http://docs.wolfthemes.com/documentation/plugins/' . plugin_basename( dirname( __FILE__ ) ),
+				'WVTG_DOC_URI'     => 'http://docs.wolfthemes.com/documentation/plugins/' . plugin_basename( dirname( __FILE__ ) ),
 				'WVTG_WOLF_DOMAIN' => 'wolfthemes.com',
 			);
 
@@ -110,7 +108,8 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 
 		/**
 		 * Define constant if not already set
-		 * @param  string $name
+		 *
+		 * @param  string      $name
 		 * @param  string|bool $value
 		 */
 		private function define( $name, $value ) {
@@ -122,17 +121,18 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * What type of request is this?
 		 * string $type ajax, frontend or admin
+		 *
 		 * @return bool
 		 */
 		private function is_request( $type ) {
 			switch ( $type ) {
-				case 'admin' :
+				case 'admin':
 					return is_admin();
-				case 'ajax' :
+				case 'ajax':
 					return defined( 'DOING_AJAX' );
-				case 'cron' :
+				case 'cron':
 					return defined( 'DOING_CRON' );
-				case 'frontend' :
+				case 'frontend':
 					return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 			}
 		}
@@ -145,25 +145,26 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 			/**
 			 * Functions used in frontend and admin
 			 */
-			//include_once( 'inc/wvtg-core-functions.php' );
+			// include_once( 'inc/wvtg-core-functions.php' );
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once( 'inc/admin/class-wvtg-admin.php' );
-				include_once( 'inc/admin/class-wvtg-video-thumbnail.php' );
+				include_once 'inc/admin/class-wvtg-admin.php';
+				include_once 'inc/admin/class-wvtg-video-thumbnail.php';
 			}
 
 			if ( $this->is_request( 'ajax' ) ) {
-				//include_once( 'inc/ajax/wvtg-ajax-functions.php' );
+				// include_once( 'inc/ajax/wvtg-ajax-functions.php' );
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				//include_once( 'inc/frontend/wvtg-functions.php' );
-				//include_once( 'inc/frontend/class-wvtg-shortcodes.php' );
+				// include_once( 'inc/frontend/wvtg-functions.php' );
+				// include_once( 'inc/frontend/class-wvtg-shortcodes.php' );
 			}
 		}
 
 		/**
 		 * Get the plugin url.
+		 *
 		 * @return string
 		 */
 		public function plugin_url() {
@@ -172,6 +173,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 
 		/**
 		 * Get the plugin path.
+		 *
 		 * @return string
 		 */
 		public function plugin_path() {
@@ -190,17 +192,17 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 			$repo = 'wolfthemes/wolf-video-thumbnail-generator';
 
 			$config = array(
-				'slug' => plugin_basename( __FILE__ ),
+				'slug'               => plugin_basename( __FILE__ ),
 				'proper_folder_name' => 'wolf-video-thumbnail-generator',
-				'api_url' => 'https://api.github.com/repos/' . $repo . '',
-				'raw_url' => 'https://raw.github.com/' . $repo . '/master/',
-				'github_url' => 'https://github.com/' . $repo . '',
-				'zip_url' => 'https://github.com/' . $repo . '/archive/master.zip',
-				'sslverify' => true,
-				'requires' => '5.0',
-				'tested' => '5.5',
-				'readme' => 'README.md',
-				'access_token' => '',
+				'api_url'            => 'https://api.github.com/repos/' . $repo . '',
+				'raw_url'            => 'https://raw.github.com/' . $repo . '/master/',
+				'github_url'         => 'https://github.com/' . $repo . '',
+				'zip_url'            => 'https://github.com/' . $repo . '/archive/master.zip',
+				'sslverify'          => true,
+				'requires'           => '5.0',
+				'tested'             => '5.5',
+				'readme'             => 'README.md',
+				'access_token'       => '',
 			);
 
 			new WP_GitHub_Updater( $config );
@@ -217,4 +219,4 @@ function WVTG() {
 	return Wolf_Video_Thumbnail_Generator::instance();
 }
 
-WVTG(); // Go
+WVTG(); // Go.

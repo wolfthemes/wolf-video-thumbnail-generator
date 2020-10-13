@@ -1,12 +1,12 @@
 <?php
 /**
- * Wolf Recipes Uninstall
+ * Video Thumbnail Generator Uninstall
  *
- * Uninstalling Wolf Recipes
+ * Uninstalling Video Thumbnail Generator
  *
  * @author WolfThemes
  * @category Core
- * @package WolfRecipes/Uninstaller
+ * @package WolfVideoThumbnailGenerator/Uninstaller
  * @version 1.0.0
  */
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Phaedra Video thumbnail generator
+ * Video Thumbnail Generator Video thumbnail generator
  *
  * Supports vimeo and youtube
  *
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 		 */
 		public function get_post_types() {
 
-			return array( 'post', 'page' );
+			return array( 'post', 'page', 'wvc_content_block', 'work', 'event', 'release' );
 		}
 
 		/**
@@ -305,7 +305,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 						update_post_meta( $attachment_id, '_video_thumbnail_url', $new_thumbnail );
 
 						// set featured image
-						update_post_meta( $post_id, '_thumbnail_id', $attachment_id );
+						//update_post_meta( $post_id, '_thumbnail_id', $attachment_id );
 					}
 					
 				// if the retrieven thumbnail is already saved as post meta
@@ -313,7 +313,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 
 					$new_thumbnail = $meta;
 					if ( $attachment_id && ! get_post_meta( $post_id, '_thumbnail_id', $attachment_id, true ) ) {
-						update_post_meta( $post_id, '_thumbnail_id', $attachment_id );
+						//update_post_meta( $post_id, '_thumbnail_id', $attachment_id );
 					}
 				}
 			} // endif new_thumbnail
@@ -483,13 +483,11 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 					
 					document.getElementById( 'video-thumbnail-preview' ).innerHTML= response;
 					
-					jQuery( '#postimagediv .inside #set-post-thumbnail' ).empty().html( response );
+					//jQuery( '#postimagediv .inside #set-post-thumbnail' ).empty().html( response );
 					jQuery( '#remove-post-thumbnail' ).remove();
 					jQuery( '#video-thumbnail-delete' ).remove();
 					
-					
-
-					jQuery( '#postimagediv .inside' ).append( removeFeaturedImg );
+					//jQuery( '#postimagediv .inside' ).append( removeFeaturedImg );
 					jQuery( '#video-thumbnail-action' ).append( deleteLink );
 					jQuery( '#video-thumbnail-reset' ).empty().append( resetText );
 				} );
@@ -523,8 +521,8 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 				};
 
 				jQuery.post( ajaxurl, data, function( response ) {
-					jQuery( '#postimagediv .inside #set-post-thumbnail' ).empty().html( '<?php esc_html_e( 'Set featured image', 'wolf-video-thumbnail-generator' ); ?>' );
-					jQuery( '#remove-post-thumbnail' ).remove();
+					//jQuery( '#postimagediv .inside #set-post-thumbnail' ).empty().html( '<?php esc_html_e( 'Set featured image', 'wolf-video-thumbnail-generator' ); ?>' );
+					//jQuery( '#remove-post-thumbnail' ).remove();
 				} );
 			}
 			</script>
