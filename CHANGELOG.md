@@ -1,8 +1,8 @@
 # Changelog
 
-#### 13th October 2020 - Version 1.0.7
+#### 14th October 2020 - Version 1.0.7
 
--   Tweak: Added config files
+-   Tweak: Improved thumbnail generator script
 
 #### 26th August 2020 - Version 1.0.6
 

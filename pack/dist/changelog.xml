@@ -3,19 +3,23 @@
 <slug>wolf-video-thumbnail-generator</slug>
 <name>Video Thumbnail Generator</name>
 <link>https://github.com/wolfthemes/wolf-video-thumbnail-generator</link>
-<short_link>http://wlfthm.es/xAsAqi</short_link>
+<short_link>https://wlfthm.es/video-thumbnail-generator</short_link>
 <created>2016-12-16</created>
 <requires></requires>
 <tested></tested>
 <description>Generate an image from the first video in the post. Supports YouTube and Vimeo.</description>
-<date>2020-08-26</date>
-<latest>1.0.6</latest>
+<date>2020-10-14</date>
+<latest>1.0.7</latest>
 <warning><![CDATA[]]></warning>
 <info><![CDATA[]]></info>
 <new><![CDATA[]]></new>
 <changelog>
 <![CDATA[
 <h1 id="changelog">Changelog</h1>
+<h4 id="14th-october-2020-version-1-0-7">14th October 2020 - Version 1.0.7</h4>
+<ul>
+<li>Tweak: Improved thumbnail generator script</li>
+</ul>
 <h4 id="26th-august-2020-version-1-0-6">26th August 2020 - Version 1.0.6</h4>
 <ul>
 <li>Tweak: Unbrand plugin name</li>

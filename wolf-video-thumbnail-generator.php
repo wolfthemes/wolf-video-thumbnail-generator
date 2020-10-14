@@ -3,7 +3,7 @@
  * Plugin Name: Video Thumbnail Generator
  * Plugin URI: https://github.com/wolfthemes/wolf-video-thumbnail-generator
  * Description: Generate an image from the first video in the post. Supports YouTube and Vimeo.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
  * Requires at least: 5.0
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 	 * Contains the main functions for Wolf_Video_Thumbnail_Generator
 	 *
 	 * @class Wolf_Video_Thumbnail_Generator
-	 * @version 1.0.6
+	 * @version 1.0.7
 	 * @since 1.0.0
 	 */
 	class Wolf_Video_Thumbnail_Generator {
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.0.6';
+		public $version = '1.0.7';
 
 		/**
 		 * @var Video Thumbnail Generator The single instance of the class

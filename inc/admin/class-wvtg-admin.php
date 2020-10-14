@@ -10,7 +10,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -22,10 +22,10 @@ class WVTG_Admin {
 	 */
 	public function __construct() {
 
-		// Includes files
+		// Includes files.
 		$this->includes();
 
-		// Admin init hooks
+		// Admin init hooks.
 		$this->admin_init_hooks();
 	}
 
@@ -34,16 +34,16 @@ class WVTG_Admin {
 	 */
 	public function update() {
 
-		if ( ! defined( 'IFRAME_REQUEST' ) && ! defined( 'DOING_AJAX' ) && ( get_option( 'wvtg_version' ) != WVTG_VERSION ) ) {
+		if ( ! defined( 'IFRAME_REQUEST' ) && ! defined( 'DOING_AJAX' ) && ( get_option( 'wvtg_version' ) !== WVTG_VERSION ) ) {
 
-			// Update hook
+			// Update hook.
 			do_action( 'wvtg_do_update' );
 
-			// Update version
+			// Update version.
 			delete_option( 'wvtg_version' );
 			add_option( 'wvtg_version', WVTG_VERSION );
 
-			// After update hook
+			// After update hook.
 			do_action( 'wvtg_updated' );
 		}
 	}
@@ -61,7 +61,7 @@ class WVTG_Admin {
 	 */
 	public function admin_init_hooks() {
 
-		// Update version and perform stuf if needed
+		// Update version and perform stuf if needed.
 		add_action( 'admin_init', array( $this, 'update' ), 0 );
 	}
 }
