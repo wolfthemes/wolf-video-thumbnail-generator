@@ -1,7 +1,8 @@
 # Changelog
 
-#### 19th October 2020 - Version 1.0.8
+#### 19th October 2020 - Version 1.0.9
 
+-   Fix: Request Vimeo API via https
 -   Fix: Plugin update notification check
 
 #### 14th October 2020 - Version 1.0.7

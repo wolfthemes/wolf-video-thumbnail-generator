@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Video Thumbnail Generator package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Video Thumbnail Generator 1.0.8\n"
+"Project-Id-Version: Video Thumbnail Generator 1.0.9\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wolf-video-thumbnail-generator\n"
-"POT-Creation-Date: 2020-10-19 13:54:12+00:00\n"
+"POT-Creation-Date: 2020-10-19 15:33:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"

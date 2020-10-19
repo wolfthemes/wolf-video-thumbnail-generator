@@ -86,7 +86,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 				return;
 			}
 
-			$videoinfo_url = "http://vimeo.com/api/v2/video/$id.php";
+			$videoinfo_url = "https://vimeo.com/api/v2/video/$id.php";
 			$response      = wp_remote_get( $videoinfo_url, array( 'timeout' => 10 ) );
 
 			if ( is_array( $response ) ) {
