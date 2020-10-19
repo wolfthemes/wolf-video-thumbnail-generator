@@ -1,5 +1,9 @@
 # Changelog
 
+#### 19th October 2020 - Version 1.0.8
+
+-   Fix: Plugin update notification check
+
 #### 14th October 2020 - Version 1.0.7
 
 -   Tweak: Improved thumbnail generator script
