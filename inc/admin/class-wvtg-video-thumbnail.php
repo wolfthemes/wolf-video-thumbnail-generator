@@ -90,8 +90,8 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 			$response      = wp_remote_get( $videoinfo_url, array( 'timeout' => 10 ) );
 
 			if ( is_array( $response ) ) {
-				$body   = $response['body']; // use the content.
-				$output = unserialize( $body );
+				$body   = wp_remote_retrieve_body( $response ); // use the content.
+				$output = maybe_unserialize( $body );
 				$output = $output[0][ $info ];
 			} else {
 				$output = sprintf(
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 		/**
 		 * Get the first video URL in the post
 		 *
-		 * @param int $post_id
+		 * @param int $post_id The post ID.
 		 * @return string/bool
 		 */
 		public function get_video_url( $post_id ) {
@@ -492,6 +492,8 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 
 				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
 				jQuery.post( ajaxurl, data, function( response ) {
+
+					console.log( response );
 
 					document.getElementById( 'video-thumbnail-preview' ).innerHTML= response;
 
