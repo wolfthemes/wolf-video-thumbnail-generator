@@ -206,7 +206,6 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 			}
 
 			return $youtube_thumbnail;
-
 		}
 
 		/**
