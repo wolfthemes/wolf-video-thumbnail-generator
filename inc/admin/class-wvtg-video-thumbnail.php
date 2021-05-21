@@ -249,9 +249,9 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 			}
 
 			// check if the thumbnail has already been generated and saved in a post meta.
-			//if ( ! get_post_meta( $post_id, '_video_thumbnail_attachment_id', true ) ) {
-			//	return;
-			//}
+			// if ( ! get_post_meta( $post_id, '_video_thumbnail_attachment_id', true ) ) {
+			// return;
+			// }
 
 			// get video thumbnail.
 			$new_thumbnail = $this->get_video_thumbnail( $post_id );
@@ -260,47 +260,55 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 			if ( $new_thumbnail ) {
 
 				// check if this thumbnail has already been attached to the post using meta.
-				$args = array(
-					'post_type'   => 'attachment',
-					'numberposts' => null,
-					'post_status' => null,
-					'post_parent' => $post_id,
-				);
+				// $args = array(
+				// 'post_type'   => 'attachment',
+				// 'numberposts' => null,
+				// 'post_status' => null,
+				// 'post_parent' => $post_id,
+				// );
 
-				$attachments = get_posts( $args );
+				// $attachments = get_posts( $args );
 
-				if ( $attachments ) {
+				// if ( $attachments ) {
 
-					foreach ( $attachments as $attachment ) {
+				// foreach ( $attachments as $attachment ) {
 
-						if ( get_post_meta( $attachment->ID, '_video_thumbnail_url', true ) == $new_thumbnail ) {
-							$attachment_id = $attachment->ID;
-							break;
-						}
-					}
-				}
+				// if ( get_post_meta( $attachment->ID, '_video_thumbnail_url', true ) == $new_thumbnail ) {
+				// $attachment_id = $attachment->ID;
+				// break;
+				// }
+				// }
+				// }
 
 				// check if the retrieven thumbnail is different from the one saved in the post meta.
 				// if ( $meta !== $new_thumbnail ) {
 
 					// Add hidden custom field with thumbnail origin URL.
-					update_post_meta( $post_id, '_video_thumbnail', $new_thumbnail );
+				update_post_meta( $post_id, '_video_thumbnail', esc_url( $new_thumbnail ) );
 
 					// if not already attached, we upload it in the library.
-				if ( ! $attachment_id ) {
+				// if ( ! $attachment_id ) {
+
+				if ( preg_match( '/vimeo/', $new_thumbnail ) && ! preg_match( '/jpg/', $new_thumbnail ) ) {
+					$new_thumbnail = $new_thumbnail . '.jpg';
+				}
 
 					// upload the image and attach it to the post.
-					$file = media_sideload_image( $new_thumbnail, $post_id );
+					$file = media_sideload_image( esc_url( $new_thumbnail ), $post_id );
 
-					if ( $file && preg_match( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/', $file, $match ) ) {
+					//debug( $file );
 
-						if ( isset( $match[1] ) ) {
+				if ( $file && preg_match( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/', $file, $match ) ) {
 
-							$attachment_url = $match[1];
-							$attachment_id  = $this->get_attachment_id_from_url( $post_id, $attachment_url );
-						}
+					if ( isset( $match[1] ) ) {
+
+						//debug( $match[1] );
+
+						$attachment_url = $match[1];
+						$attachment_id  = $this->get_attachment_id_from_url( $post_id, $attachment_url );
 					}
 				}
+				// }
 
 					// make sure we got an attachment generated.
 				if ( $attachment_id ) {
@@ -325,7 +333,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 				// }
 			} // endif new_thumbnail
 
-			return $new_thumbnail;
+			return esc_url( $new_thumbnail );
 		}
 
 		/**
@@ -410,7 +418,7 @@ if ( ! class_exists( 'Wolf_Video_Thumbnail_Generator_Processor' ) ) {
 			$video_thumbnail    = '';
 			$video_thumbnail_id = get_post_meta( $post_id, '_video_thumbnail_attachment_id', true );
 
-			//debug( $video_thumbnail_id );
+			// debug( $video_thumbnail_id );
 
 			if ( $video_thumbnail_id ) {
 

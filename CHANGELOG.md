@@ -1,5 +1,8 @@
 # Changelog
 
+#### 21th May 2021 - Version 1.1.0
+
+-   Fix: Request Vimeo new API
 #### 19th October 2020 - Version 1.0.9
 
 -   Fix: Request Vimeo API via https
